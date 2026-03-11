@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <title>Click Button And Done</title>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Click Button And Done</h1>
+            <p>Click the button to see the magic happen!</p>
+        </header>
+        
+        <section id="webapp_cover">
+            <div id="menu_button">
+                <input type="checkbox" id="menu_checkbox" aria-label="Toggle done button">
+                <label for="menu_checkbox" id="menu_label">
+                    <div id="menu_text_bar"></div>
+                </label>
+            </div>
+        </section>
+        
+        <footer>
+            <p id="status">Ready to click!</p>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById('menu_checkbox').addEventListener('change', function() {
+            const status = document.getElementById('status');
+            if (this.checked) {
+                status.textContent = '✅ Done! Task completed successfully!';
+                status.style.color = '#4cd964';
+                
+                // Auto-reset after 3 seconds
+                setTimeout(() => {
+                    this.checked = false;
+                    status.textContent = 'Ready to click!';
+                    status.style.color = '#ffffff';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
